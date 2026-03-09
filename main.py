@@ -21,6 +21,13 @@ def node_c(state:AgentState) -> AgentState:
     state["messages"].append("C was here")
     return state
 
+def route(state:AgentState) -> AgentState:
+    if state["step"] <= 1:
+        return "node_b"
+    else:
+        return "node_c"
+
+
 graph = StateGraph(AgentState)
 graph.add_node("node_a", node_a)
 graph.add_node("node_b", node_b)
